@@ -46,7 +46,7 @@ void readStudentListFromTheFile(struct studentList** first)
 	}
 
 }
-
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 void freeMemoryList(struct studentList** pHead)
 {
 	struct studentList*pTemp = NULL;
@@ -59,10 +59,10 @@ void freeMemoryList(struct studentList** pHead)
 		pTemp = NULL;
 		pTemp = *pHead;
 	}
-	//free(pHead);
+	
 	pHead = NULL;
 }
-
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------
 void printfStructStudent(struct studentList** pFirst)
 {
 	struct studentList*temp = *pFirst;
@@ -79,7 +79,7 @@ void printfStructStudent(struct studentList** pFirst)
 		printf("\n");
 	}
 }
-
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 void getNewStudentFromKeybord(struct studentList** first)
 {
 	int amountOfAddedStudent;
@@ -114,7 +114,7 @@ void getNewStudentFromKeybord(struct studentList** first)
 		}
 	}
 }
-
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 int isStudentHasFourOrFive(struct studentList** student)
 {
 	int count = 0;
@@ -128,7 +128,7 @@ int isStudentHasFourOrFive(struct studentList** student)
 	}
 	return count;
 }
-
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 void addNewStudent(struct studentList** StudentList, struct studentList** StudentListToAdd)
 {
 	struct studentList* curStudentToAdd = *StudentListToAdd, *tempListToAdd = NULL, *prevStudentInList = NULL, *nextStudentToAdd = NULL, *temp = NULL;
@@ -174,27 +174,28 @@ void addNewStudent(struct studentList** StudentList, struct studentList** Studen
 	}
 
 }
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 void deleteFirst(struct studentList** studentToDelete)
 {
 	struct studentList* temp = (*studentToDelete)->next;
 	free(*studentToDelete);
 	*studentToDelete = temp;
 }
-
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 void deleteInsideList(struct studentList** prevStudent, struct studentList** studentToDelete)
 {
 	(*prevStudent)->next = (*studentToDelete)->next;
 	free(*studentToDelete);
 	*studentToDelete = (*prevStudent)->next;
 }
-
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 void deleteLast(struct studentList** prevStudent, struct studentList** studentToDelete)
 {
 	(*prevStudent)->next = NULL;
 	free(*studentToDelete);
 	*studentToDelete = NULL;
 }
-
+//-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 void deleteStudent(struct studentList** StudentList)
 {
 	struct studentList* curStudent = *StudentList, *temp = NULL, *prevStudent = curStudent;
