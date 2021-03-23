@@ -14,22 +14,8 @@ int main()
 	printf("\n\n");
 	printfStudentList(&start);
 	freeMemoryList(&start);
-	
+
 	return 0;
 }
-
-
-
-
-
-
-
-/*void addFirst(struct studentList**firstStudent, struct studentList**addedStudent)
-{
-	(*addedStudent)->next = *firstStudent;
-	*firstStudent = *addedStudent;
-}*/
-
-
 
 
