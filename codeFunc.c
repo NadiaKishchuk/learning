@@ -48,7 +48,7 @@ void freeMemoryList(struct studentList** pHead){
 	pHead = NULL;
 }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------
-void printfStructStudent(struct studentList** pFirst){
+void printfStudentList(struct studentList** pFirst){
 	struct studentList*temp = *pFirst;
 	while (temp != NULL){
 		printf("%-12s %-12s %-12s ", temp->student.s_surname, temp->student.s_name, temp->student.s_birth);
@@ -85,7 +85,7 @@ void getNewStudentFromKeybord(struct studentList** first){
 				curStudent = curStudent->next;
 				curStudent->next = NULL;
 			}
-			curStudent->next = NULL;
+			
 		}
 	}
 }
@@ -108,6 +108,7 @@ void addNewStudent(struct studentList** StudentList, struct studentList** Studen
 	while (curStudentToAdd){
 		curStudentToAdd->student.s_surname[0] = toupper(curStudentToAdd->student.s_surname[0]);
 		tempListToAdd = *StudentList;
+		prevStudentInList = NULL;
 		nextStudentToAdd = curStudentToAdd->next;
 		while ((tempListToAdd != NULL)){
 			if (strcmp(tempListToAdd->student.s_surname, curStudentToAdd->student.s_surname) < 0){

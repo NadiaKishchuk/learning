@@ -23,7 +23,7 @@ struct studentList
 	struct studentList * next;
 };
 void readStudentListFromTheFile(struct studentList** first);
-void printfStructStudent(struct studentList** pFirst);
+void printfStudentList(struct studentList** pFirst);
 void getNewStudentFromKeybord(struct studentList** first);
 int isStudentHasFourOrFive(struct studentList** student);
 void addNewStudent(struct studentList** StudentList, struct studentList** StudentListToAdd);

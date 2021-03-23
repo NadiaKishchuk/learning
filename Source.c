@@ -6,13 +6,13 @@ int main()
 	struct studentList*startAddedStudent = NULL;
 	readStudentListFromTheFile(&start);
 	getNewStudentFromKeybord(&startAddedStudent);
-	printfStructStudent(&start);
+	printfStudentList(&start);
 	printf("\n\n");
 	addNewStudent(&start, &startAddedStudent);
-	printfStructStudent(&start);
+	printfStudentList(&start);
 	deleteStudent(&start);
 	printf("\n\n");
-	printfStructStudent(&start);
+	printfStudentList(&start);
 	freeMemoryList(&start);
 	
 	return 0;
