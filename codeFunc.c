@@ -150,25 +150,20 @@ void deleteLast(struct studentList** prevStudent, struct studentList** studentTo
 	*studentToDelete = NULL;
 }
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 void deleteStudent(struct studentList** StudentList){
 	struct studentList* curStudent = *StudentList, *temp = NULL, *prevStudent = curStudent;
 	while (curStudent){
 		if (!isStudentHasFourOrFive(&curStudent)){
 			if (curStudent == *StudentList){
 				(*StudentList) = (*StudentList)->next;
-				/*
-				free(curStudent);
-				curStudent = (*StudentList);*/
+				
 				deleteFirst(&curStudent);
 			}else if (!curStudent->next){
-				/*prevStudent->next = NULL;
-				free(curStudent);
-				curStudent=NULL;*/
+				
 				deleteLast(&prevStudent, &curStudent);
 			}else {
-				/*prevStudent->next = curStudent->next;
-				free(curStudent);
-				curStudent = prevStudent->next;*/
+				
 				deleteInsideList(&prevStudent, &curStudent);
 			}
 
