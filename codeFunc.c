@@ -2,7 +2,7 @@
 void readStudentListFromTheFile(struct studentList** first){
 	struct studentList*startList = (struct studentList*)malloc(sizeof(struct studentList)), *Student = startList, *prevStudent = NULL;
 
-	FILE* inFile = fopen("C:\\Users\\Íàä³ÿ\\Desktop\\çâ³òè\\â³ïç\\lab08\\lab08\\binarryFile", "rb");
+	FILE* inFile = fopen("C:\\Users\\Íàä³ÿ\\Desktop\\çâ³òè\\â³ïç\\lab08\\lab08\\st.txt", "r");
 	if (!inFile)
 	{
 		printf("the file hasn`t opened ");
@@ -85,6 +85,7 @@ void getNewStudentFromKeybord(struct studentList** first){
 				curStudent = curStudent->next;
 				curStudent->next = NULL;
 			}
+			curStudent->next = NULL;
 			
 		}
 	}
@@ -107,6 +108,7 @@ void addNewStudent(struct studentList** StudentList, struct studentList** Studen
 
 	while (curStudentToAdd){
 		curStudentToAdd->student.s_surname[0] = toupper(curStudentToAdd->student.s_surname[0]);
+		curStudentToAdd->student.s_name[0] = toupper(curStudentToAdd->student.s_name[0]);
 		tempListToAdd = *StudentList;
 		prevStudentInList = NULL;
 		nextStudentToAdd = curStudentToAdd->next;
@@ -116,6 +118,21 @@ void addNewStudent(struct studentList** StudentList, struct studentList** Studen
 				tempListToAdd = tempListToAdd->next;
 			}else{
 				break;
+			}
+		}
+		if ( tempListToAdd != NULL){
+			if (strcmp(tempListToAdd->student.s_surname, curStudentToAdd->student.s_surname) == 0) {
+
+
+				while ((tempListToAdd != NULL)) {
+					if (strcmp(tempListToAdd->student.s_surname, curStudentToAdd->student.s_surname) == 0&&strcmp(tempListToAdd->student.s_name, curStudentToAdd->student.s_name) < 0) {
+						prevStudentInList = tempListToAdd;
+						tempListToAdd = tempListToAdd->next;
+					}
+					else {
+						break;
+					}
+				}
 			}
 		}
 		if (!prevStudentInList){
